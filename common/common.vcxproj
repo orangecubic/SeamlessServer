@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="concurrent\ConcurrentMap.h" />
+    <ClInclude Include="concurrent\LinearWorker.h" />
+    <ClInclude Include="concurrent\LinearWorkQueue.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="engine\CloudConfigManager.h" />
+    <ClInclude Include="engine\NetworkEngine.h" />
+    <ClInclude Include="engine\NetworkEngineWorker.h" />
+    <ClInclude Include="engine\PacketThrottler.h" />
+    <ClInclude Include="engine\protocol\Packet.h" />
+    <ClInclude Include="engine\protocol\PacketEnum.h" />
+    <ClInclude Include="engine\protocol\PacketStruct.h" />
+    <ClInclude Include="engine\protocol\Protocol.h" />
+    <ClInclude Include="engine\Session.h" />
+    <ClInclude Include="engine\SocketContext.h" />
+    <ClInclude Include="engine\SocketSession.h" />
+    <ClInclude Include="engine\SocketWorkerInfo.h" />
+    <ClInclude Include="game\coordinate\Base.h" />
+    <ClInclude Include="game\coordinate\Fixture.h" />
+    <ClInclude Include="engine\NetworkContext.h" />
+    <ClInclude Include="game\coordinate\SectorSystem.h" />
+    <ClInclude Include="game\define.h" />
+    <ClInclude Include="game\GameServer.h" />
+    <ClInclude Include="game\object\Character.h" />
+    <ClInclude Include="game\object\Monster.h" />
+    <ClInclude Include="game\object\Object.h" />
+    <ClInclude Include="game\object\Vital.h" />
+    <ClInclude Include="game\coordinate\SectorGrid.h" />
+    <ClInclude Include="game\SectorPostingManager.h" />
+    <ClInclude Include="game\World.h" />
+    <ClInclude Include="memory\Allocator.h" />
+    <ClInclude Include="memory\Buffer.h" />
+    <ClInclude Include="memory\ConcurrentStack.h" />
+    <ClInclude Include="memory\RefCounter.h" />
+    <ClInclude Include="memory\IntrusivePtr.h" />
+    <ClInclude Include="memory\SharedObjectPool.h" />
+    <ClInclude Include="memory\SpinLock.h" />
+    <ClInclude Include="network\AcceptorStream.h" />
+    <ClInclude Include="network\iocp\IocpAcceptorStream.h" />
+    <ClInclude Include="network\iocp\IocpConnectorStream.h" />
+    <ClInclude Include="network\iocp\IocpSocketServer.h" />
+    <ClInclude Include="network\iocp\IocpTransferStream.h" />
+    <ClInclude Include="network\SocketStreamBase.h" />
+    <ClInclude Include="network\Meta.h" />
+    <ClInclude Include="network\SocketServer.h" />
+    <ClInclude Include="network\Session.h" />
+    <ClInclude Include="network\TransferStream.h" />
+    <ClInclude Include="thirdparty\atomic_queue\include\atomic_queue\atomic_queue.h" />
+    <ClInclude Include="thirdparty\atomic_queue\include\atomic_queue\atomic_queue_mutex.h" />
+    <ClInclude Include="thirdparty\atomic_queue\include\atomic_queue\barrier.h" />
+    <ClInclude Include="thirdparty\atomic_queue\include\atomic_queue\defs.h" />
+    <ClInclude Include="thirdparty\atomic_queue\include\atomic_queue\spinlock.h" />
+    <ClInclude Include="thirdparty\yalantinglibs\include\ylt\easylog.hpp" />
+    <ClInclude Include="thirdparty\yalantinglibs\include\ylt\struct_pack.hpp" />
+    <ClInclude Include="thirdparty\yalantinglibs\include\ylt\struct_pb.hpp" />
+    <ClInclude Include="utility\Defer.h" />
+    <ClInclude Include="utility\Logger.h" />
+    <ClInclude Include="utility\RuntimeUidGenerator.h" />
+    <ClInclude Include="utility\Sampling.h" />
+    <ClInclude Include="utility\MultiDimensionMap.h" />
+    <ClInclude Include="utility\Random.h" />
+    <ClInclude Include="utility\Time.h" />
+    <ClInclude Include="utility\Union.h" />
+    <ClInclude Include="utility\Uid.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="engine\CloudConfigManager.cpp" />
+    <ClCompile Include="engine\NetworkEngine.cpp" />
+    <ClCompile Include="game\coordinate\SectorSystem.cpp" />
+    <ClCompile Include="game\GameServer.cpp" />
+    <ClCompile Include="game\SectorPostingManager.cpp" />
+    <ClCompile Include="game\World.cpp" />
+    <ClCompile Include="memory\ObjectPool.h" />
+    <ClCompile Include="memory\SequentialBuffer.h" />
+    <ClCompile Include="network\iocp\IocpAcceptorStream.cpp" />
+    <ClCompile Include="network\iocp\IocpConnectorStream.cpp" />
+    <ClCompile Include="network\iocp\IocpSocketServer.cpp" />
+    <ClCompile Include="network\iocp\IocpSocketServerOperation.cpp" />
+    <ClCompile Include="network\iocp\IocpTransferStream.cpp" />
+    <ClCompile Include="network\iocp\IoContext.h" />
+    <ClCompile Include="network\Meta.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{9f95f65d-9285-4319-8d63-773ad220ab24}</ProjectGuid>
+    <RootNamespace>common</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>../thirdparty/include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);../thirdparty/include</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
