@@ -67,7 +67,10 @@ public:
 		{
 			throttle_data.buffer = session->TryAllocateWriteBuffer();
 			if (throttle_data.buffer == nullptr)
+			{
+				_throttle_data.erase(session->GetSessionId());
 				return;
+			}
 		}
 		
 		throttle_data.session = session;

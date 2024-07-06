@@ -6,8 +6,7 @@
 #include <sstream>
 
 constexpr uint64_t InitialSectorId = CenterSector.sector_id;
-constexpr Vector2 InitialCharacterPosition = GetSectorFixtureRectangle(InitialSectorId).LeftDown();
-constexpr Vector2 InitialCharacterPosition2 = Vector2{ InitialCharacterPosition.x + 200, GetSectorFixtureRectangle(InitialSectorId).Center().y};
+constexpr Vector2 InitialCharacterPosition = GetSectorFixtureRectangle(InitialSectorId).Center();
 
 void AgencyWorker::SetPacketHandler(PacketHandler* packet_handler)
 {
@@ -50,7 +49,7 @@ void AgencyWorker::OnClientAccepted(UniversalSessionInfo* client_session)
 
 	packet_spawn_character_rq request;
 	request.object_info.sector_id = InitialSectorId;
-	request.object_info.fixture.position = InitialCharacterPosition2;
+	request.object_info.fixture.position = InitialCharacterPosition;
 	request.object_info.fixture.size = Size{ 100, 100 };
 	request.user_id = user_id;
 

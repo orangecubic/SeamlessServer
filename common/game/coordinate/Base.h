@@ -120,7 +120,7 @@ constexpr Size ChunkGrid{ SectorSize.x / ChunkSize, SectorSize.y / ChunkSize };
 
 constexpr CoordinateUnit MaxAOI = 50;
 
-constexpr CoordinateUnit ForceConstant = 800;
+constexpr CoordinateUnit ForceConstant = 500;
 
 constexpr int32_t SectorGridWidth = 5;
 constexpr int32_t SectorGridHeight = 5;

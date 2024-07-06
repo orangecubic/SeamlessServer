@@ -18,7 +18,7 @@ class ClientWorker : public NetworkEngineWorker
 private:
     std::unordered_map<uint64_t, SessionFixture> _sessions;
 
-    utility::Timer<utility::Milliseconds> _timer = (utility::Milliseconds(200));
+    utility::Timer<utility::Milliseconds> _timer = (utility::Milliseconds(500));
 
 public:
     virtual void OnSocketSessionConnected(SocketContext* context)
@@ -118,7 +118,7 @@ int main()
     if (user_server_engine->Start() != 0)
         throw std::exception("failed to start user server engine");
 
-    for (int index = 0; index < 300; index++)
+    for (int index = 0; index < 200; index++)
         user_server_engine->RegisterConnectorSocket(SocketAddress::New("127.0.0.1", 9997), 0);
 
     while (true)

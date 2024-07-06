@@ -125,6 +125,11 @@ void PacketHandler::OnPlaySpawnCharacterRes(IntraServerInfo* const server, const
 
 	_agency->_object_sessions[packet.object_info.object_id] = &iter->second;
 
+	packet_create_object_ps broadcast;
+	broadcast.object_info = packet.object_info;
+
+	_agency->_sector_posting_manager->SendToSector(broadcast, packet.object_info.sector_id);
+
 	_agency->_sector_posting_manager->AddSectorListener(packet.object_info.sector_id, packet.user_id);
 
 	packet_game_enter_request_rs user_response;
@@ -275,7 +280,7 @@ packet_object_list_ps PacketHandler::MakeObjectListPacket(const uint64_t sector_
 		object.vital = {};
 
 		if (object.fixture.direction != Direction::Max)
-			object.fixture.personal_delta_time = static_cast<uint16_t>(object.fixture.last_transform_time - _agency->_current_epoch_timestamp.count());
+			object.fixture.personal_delta_time = static_cast<uint16_t>(_agency->_current_epoch_timestamp.count() - object.fixture.last_transform_time);
 
 		packet.object_list.push_back(object);
 	}

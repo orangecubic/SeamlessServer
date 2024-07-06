@@ -40,6 +40,7 @@ private:
 
 	using ObjectBlock = std::conditional_t<CONCURRENT, ObjectBlock_Aligned, ObjectBlock_None>;
 
+	// 메모리 누수 원인 파악 후 Queue로 교체 예정
 	// std::conditional_t<CONCURRENT, atomic_queue::AtomicQueueB<ObjectBlock*>*, std::deque<ObjectBlock*>*> _pool;
 	std::conditional_t<CONCURRENT, ConcurrentStack<ObjectBlock*>*, std::deque<ObjectBlock*>*> _pool;
 #endif

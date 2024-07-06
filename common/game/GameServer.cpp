@@ -446,10 +446,6 @@ bool GameServer::Initialize(const ServerType my_server_type, const SocketAddress
 
 void GameServer::GameServerWorker::ProcessLoopbackData(SocketBuffer* const buffer)
 {
-#ifdef _DEBUG
-	std::vector<PacketType> _debug_packets;
-#endif
-
 	DynamicBufferCursor<SocketBuffer> cursor(buffer);
 
 	while (cursor.RemainBytes() >= PACKET_HEADER_SIZE)
@@ -457,10 +453,6 @@ void GameServer::GameServerWorker::ProcessLoopbackData(SocketBuffer* const buffe
 		cursor.Seek(PACKET_LENGTH_SIZE);
 
 		PacketHeader header = DeserializePacketHeader(cursor.Data(), buffer->capacity - cursor.Cursor());
-
-#ifdef _DEBUG
-		_debug_packets.push_back(header.packet_type);
-#endif
 
 		cursor.Seek(PACKET_HEADER_SIZE);
 

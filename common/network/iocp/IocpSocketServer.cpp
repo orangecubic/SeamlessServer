@@ -366,9 +366,8 @@ void IocpSocketServer::Connect(const SocketAddress& socket_address, const Socket
 
 	if (socket_stream == nullptr)
 	{
-		TransferStreamPtr empty_ptr(nullptr);
-		_event_handler->OnConnect(empty_ptr, attachment);
-		return;
+		LOG(LogLevel::Warn, "no more connector found in pool");
+		socket_stream = _connector_socket_pool->Pop(true);
 	}
 
 	socket_stream->SetSocketAddress(socket_address);
